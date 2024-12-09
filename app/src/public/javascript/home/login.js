@@ -13,9 +13,14 @@ function login() {
     };
 
 //  데이터를 서버에게 전송해주는 메소드 fetch()    
+//  fetch()는 서버로 요청을 보내고 Promise를 반환해.
+//  res.json()은 응답 데이터를 JSON으로 파싱하는 비동기 작업이기 때문에 또 다른 Promise를 반환해.
+//  then()을 사용해서 그 결과를 처리할 수 있어.
     fetch("/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(req),
     })
+    .then((res) => res.json())
+    .then((res) => console.log(res));
 }
