@@ -13,5 +13,9 @@ function login() {
     };
 
 //  데이터를 서버에게 전송해주는 메소드 fetch()    
-    fetch()
+    fetch("/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(req),
+    })
 }
